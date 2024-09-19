@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<script type="text/javascript" src="FigureTemplate.js"></script>
+<script type="text/javascript" src="https://unpkg.com/konva@9/konva.min.js"></script>
+
+
+
+<div>
+    <div id = "cont"></div>
+    <script type="text/javascript" src="builder_logics.js"></script>
+    <!--
+           <canvas id="canvas" width="1920" height="1020" style="border:1px solid #000000;">
+        </canvas> 
+    -->
+
+
+        <div style="position: relative; top: -250px; left: 375px;"> 
+            <input type="submit" id = "creator_rectangle" class = "button_hide_class low_button " value="Скрыть" >
+            <input type="submit" id = "button_hide_id" class = "button_hide_class low_button " value="Скрыть" >
+            <input type="submit" id = "button_hide_id" class = "button_hide_class low_button " value="Скрыть" >
+            <input type="submit" id = "button_hide_id" class = "button_hide_class low_button " value="Скрыть" >
+            <input type="submit" id = "button_hide_id" class = "button_hide_class low_button " value="Скрыть" >
+        </div>
+        <input type="submit" id = "button_hide_id" class = "button_hide_class low_button " value="Скрыть" > 
+        <script type ="text/javascript">
+        var board = new Board('cont');
+        var f = new Figure(RECTANGLE_NAME, board.layer);
+        var f2 = new Figure(CIRCLE_NAME, board.layer);
+    
+        board.addElement(f.shape.group);
+        board.addElement(f.shape.transformer);
+        board.addElement(f.shape.text);
+        var l = f.shape.listConnectPoints
+        for (let i = 0; i < l.length; i++)
+            board.addElement(l[i]);
+
+        board.addElement(f2.shape.group);
+        board.addElement(f2.shape.transformer);
+        board.addElement(f2.shape.text);
+        var l2 = f2.shape.listConnectPoints
+        for (let i = 0; i < l2.length; i++)
+            board.addElement(l2[i]);
+        document.getElementById("creator_rectangle").addEventListener('click', (e) =>{
+            var fg = new Figure(CIRCLE_NAME, board.layer);
+            board.addElement(fg.shape.group);
+            board.addElement(fg.shape.transformer);
+            board.addElement(fg.shape.text);
+            var l = fg.shape.listConnectPoints
+            for (let i = 0; i < l.length; i++)
+                board.addElement(l[i]);
+            board.drawElements();
+        });
+    
+        board.drawElements();
+        </script>
+
+</div>
+
+
+<h1>Index html</h1>
